@@ -11,6 +11,17 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+/* 首页 */
+Route::get('/', 'IndexController@index')->name('index');
+/* 文章 */
+Route::get('/archives', 'ArchivesController@index')->name('archives');
+/* 关于我 */
+Route::get('/about-me', 'ArticleController@index')->name('about-me');
+/* IT学习资料 */
+Route::get('/it-resource', 'ArticleController@index')->name('it-resource');
+
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
