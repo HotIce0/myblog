@@ -21,6 +21,10 @@ Route::get('/about-me', 'ArticleController@index')->name('about-me');
 /* IT学习资料 */
 Route::get('/it-resource', 'ArticleController@index')->name('it-resource');
 
+/* 管理员路由 */
+Route::Group(['middleware'=>'auth'],function() {
+    Route::get('/admin', 'AdminController@index')->name('admin');
+});
 
 Auth::routes();
 
