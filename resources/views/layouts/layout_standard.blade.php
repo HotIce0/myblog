@@ -1,12 +1,15 @@
 <!doctype html>
-<html lang="{{ app()->getLocale() }}">
+{{--lang="{{ app()->getLocale() }}"--}}
+<html>
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="Blog Design By Saoguang">
     <meta name="keywords" content="Saoguang">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <title>Saoguang | For Fun</title>
+    @section('title')
+        <title>Saoguang | For Fun</title>
+    @show
     <meta name="renderer" content="webkit">
     <meta http-equiv="Cache-Control" content="no-siteapp" />
     <link rel="icon" type="image/png" href="assets/i/favicon.png">
@@ -20,17 +23,18 @@
     <meta name="msapplication-TileColor" content="#0e90d2">
     <link rel="stylesheet" href="assets/css/amazeui.min.css">
     <link rel="stylesheet" href="assets/css/app.css">
-    <!-- 流量统计 start -->
-    <script>
-        var _hmt = _hmt || [];
-        (function() {
-            var hm = document.createElement("script");
-            hm.src = "https://hm.baidu.com/hm.js?a529b91311473760a077fd780db65c57";
-            var s = document.getElementsByTagName("script")[0];
-            s.parentNode.insertBefore(hm, s);
-        })();
-    </script>
-    <!-- 流量统计 end -->
+    {{--<!-- 流量统计 start -->--}}
+    {{--<script>--}}
+    {{--var _hmt = _hmt || [];--}}
+    {{--(function() {--}}
+    {{--var hm = document.createElement("script");--}}
+    {{--hm.src = "https://hm.baidu.com/hm.js?a529b91311473760a077fd780db65c57";--}}
+    {{--var s = document.getElementsByTagName("script")[0];--}}
+    {{--s.parentNode.insertBefore(hm, s);--}}
+    {{--})();--}}
+    {{--</script>--}}
+    {{--<!-- 流量统计 end -->--}}
+    @yield('head-extend'){{-- 头部扩展 --}}
 </head>
 <body  id="blog">
 
@@ -57,7 +61,7 @@
                 <a href="{{route('index')}}">首页</a>
             </li>
             <li class="{{Request::url() == route('archives') ? 'am-active' : ''}}">
-                <a href="{{route('archives')}}">我的文章</a>
+                <a href="{{route('archives', 'year='.date('Y'))}}">我的文章</a>
             </li>
             <li class="{{Request::url() == route('about-me') ? 'am-active' : ''}}">
                 <a href="{{route('about-me')}}">关于我</a>
@@ -148,6 +152,6 @@
 <script src="assets/js/amazeui.ie8polyfill.min.js"></script>
 <![endif]-->
 <script src="assets/js/amazeui.min.js"></script>
-
+@yield('script-extend')
 </body>
 </html>
