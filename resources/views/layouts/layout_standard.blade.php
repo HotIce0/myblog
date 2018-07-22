@@ -34,6 +34,7 @@
         })();
     </script>
     <!-- 流量统计 end -->
+    <meta name="baidu_union_verify" content="408377dcab1c549034da56c90d75f9d4">
     @yield('head-extend'){{-- 头部扩展 --}}
 </head>
 <body  id="blog">
