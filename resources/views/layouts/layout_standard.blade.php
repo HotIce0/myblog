@@ -23,17 +23,17 @@
     <meta name="msapplication-TileColor" content="#0e90d2">
     <link rel="stylesheet" href="{{asset('assets/css/amazeui.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/app.css')}}">
-    {{--<!-- 流量统计 start -->--}}
-    {{--<script>--}}
-    {{--var _hmt = _hmt || [];--}}
-    {{--(function() {--}}
-    {{--var hm = document.createElement("script");--}}
-    {{--hm.src = "https://hm.baidu.com/hm.js?a529b91311473760a077fd780db65c57";--}}
-    {{--var s = document.getElementsByTagName("script")[0];--}}
-    {{--s.parentNode.insertBefore(hm, s);--}}
-    {{--})();--}}
-    {{--</script>--}}
-    {{--<!-- 流量统计 end -->--}}
+    <!-- 流量统计 start -->
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?a529b91311473760a077fd780db65c57";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    <!-- 流量统计 end -->
     @yield('head-extend'){{-- 头部扩展 --}}
 </head>
 <body  id="blog">
