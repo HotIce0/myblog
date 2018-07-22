@@ -14,9 +14,11 @@
                     <h1><a href="{{route('article', 'id='.($article->archive_id))}}">{{$article->titile}}</a></h1>
                     <p>{!! substr($article->content,0,100) !!}</p>
                 </div>
+                @auth
                 <div class="am-u-lg-6 am-u-md-12 am-u-sm-12">
                     <span><a href="{{route('hide-home', $article->archive_id)}}" type="button" class="am-align-right am-btn am-btn-default am-radius">取消首页显示</a></span>
                 </div>
+                @endauth
             </article>
             @endforeach
         </div>

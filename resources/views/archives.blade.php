@@ -11,7 +11,7 @@
                 <li class="am-pagination-next"><a href="{{route('archives', 'year='.($data['year'] + 1))}}">不远的未来 &raquo;</a></li>
             </ul>
             <div class="timeline-year">
-                <h1>{{$data['year']}}<a href="{{route('article-edit')}}" type="button" class="am-align-right am-btn am-btn-default am-radius">写文章</a></h1>
+                @auth<h1>{{$data['year']}}<a href="{{route('article-edit')}}" type="button" class="am-align-right am-btn am-btn-default am-radius">写文章</a></h1>@endauth
                 <hr>
                 @for($i = 12; $i >= 1; $i--)
                     @if(!empty($data[$i]))
