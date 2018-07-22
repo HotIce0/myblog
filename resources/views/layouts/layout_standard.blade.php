@@ -2,6 +2,7 @@
 {{--lang="{{ app()->getLocale() }}"--}}
 <html>
 <head>
+    <meta name="baidu_union_verify" content="ba385fbdf9104bb1e827f000649b1fd5">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="Blog Design By Saoguang">
@@ -34,7 +35,6 @@
         })();
     </script>
     <!-- 流量统计 end -->
-    <meta name="baidu_union_verify" content="408377dcab1c549034da56c90d75f9d4">
     @yield('head-extend'){{-- 头部扩展 --}}
 </head>
 <body  id="blog">
