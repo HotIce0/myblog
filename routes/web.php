@@ -39,6 +39,8 @@ Route::Group(['middleware'=>'auth'],function() {
     Route::get('/show-home/{id}', 'ArchivesController@showHome')->name('show-home');
     /* 取消首页显示 */
     Route::get('/hide-home/{id}', 'ArchivesController@hideHome')->name('hide-home');
+    /* 文章分类管理 */
+    Route::any('/folder/{id?}', 'BasicController@folderIndex')->name('folder');
 });
 
 Auth::routes();

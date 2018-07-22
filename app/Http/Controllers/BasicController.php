@@ -35,4 +35,11 @@ class BasicController extends Controller
             'errorMsg' => 'IT学习资料页面正在建设中!',
         ]);
     }
+
+    public function folderIndex($id){
+        return view('errors.default',[
+            'errorCode' => '0618',
+            'errorMsg' => '文章分类管理页面正在建设中!',
+        ]);
+    }
 }
