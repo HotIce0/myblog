@@ -15,6 +15,7 @@ class CreateMessageTable extends Migration
     {
         Schema::create('message', function (Blueprint $table) {
             $table->increments('message_id')->comment('留言ID');
+            $table->integer('archive_id')->unsigned()->comment('文章ID');
             $table->string('user_name', 20)->comment('用户名');
             $table->string('email', 255)->comment('邮箱');
             $table->string('content', 500)->comment('留言内容');
