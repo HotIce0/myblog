@@ -19,6 +19,7 @@ class IndexController extends Controller
         $articles = Archives::join('folder', 'archives.folder_id', '=', 'folder.folder_id')
             ->where($whereRule)
             ->select('archive_id', 'archives.folder_id', 'folder_name', 'titile', 'read_salvation', 'like', 'content', 'label', 'archives.created_at', 'archives.updated_at', 'content_html', 'is_publish')
+            ->orderBy('archives.updated_at', 'desc')
             ->get();
         return view('index', [
             'articles' => $articles,
