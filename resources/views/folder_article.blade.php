@@ -5,33 +5,54 @@
     <div class="am-g am-g-fixed blog-fixed blog-content">
         <div class="am-u-sm-12">
             <h1 class="blog-text-center">分类</h1>
-            @auth<a href="{{route('article-edit')}}" type="button" class="am-align-right am-badge am-badge-primary am-text-xl">写文章</a>@endauth
             <ul class="am-pagination blog-article-margin">
                 @foreach($folders as $folder)
                     <a href="{{route('folder-article', $folder->folder_id)}}" role="button" class="am-btn am-btn-default {{$folder->folder_id==$id?"am-active":""}} am-radius">{{$folder->folder_name}}&nbsp;&nbsp;<span class="am-badge">{{$folder->archive_count}}</span></a>
                 @endforeach
             </ul>
-            <div class="timeline-year">
-                <ul>
-                    <hr>
-                    @foreach($articles as $article)
-                    <li>
-                        <span class="am-u-sm-2 am-u-md-2 timeline-span">{{date('o-n-d', strtotime($article->created_at))}}</span>
-                        <span class="am-u-sm-5 am-u-md-5">@if($article->is_publish == 0)<span class="am-badge am-badge-warning">未发布</span>&nbsp;&nbsp;@endif<a href="{{route('article', 'id='.($article->archive_id))}}">{{$article->titile}}</a></span>
-                        <span class="am-u-sm-2 am-u-md-2">{{$article->folder_name}}</span>
-                        <span class="am-u-sm-3 am-u-md-3">阅读数:{{$article->read_salvation}}
-                            @auth
-                                <a class="am-badge am-badge-primary" href="{{route('article-edit', $article->archive_id)}}">编辑</a>
-                                @if($article->is_home == 0)
-                                    <a class="am-badge am-badge-primary" href="{{route('show-home', $article->archive_id)}}">首页显示</a>
-                                @endif
-                                <a class="am-badge am-badge-danger" href="{{route('article-delete', $article->archive_id)}}">删除</a>
-                            @endauth
-                        </span>
-                    </li>
-                    @endforeach
-                </ul>
-                <br>
+            <div class="doc-example">
+                    <div class="am-panel am-panel-default">
+                        @auth
+                        <div class="am-panel-hd">
+                            <a href="{{route('article-edit')}}" style="visibility:hidden;" role="button" class="am-badge am-badge-primary am-text-default">写文章</a>
+                            <a href="{{route('article-edit')}}" role="button" class="am-fr am-badge am-badge-primary am-text-default">写文章</a>
+                        </div>
+                        @endauth
+                        <div class="am-panel-bd">
+                            <table class="am-table">
+                                <thead>
+                                <tr>
+                                    @auth
+                                        <th>操作</th>
+                                    @endauth
+                                    <th>时间</th>
+                                    <th>文章标题</th>
+                                    <th>分支分类</th>
+                                    <th>阅读数量</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                @foreach($articles as $article)
+                                    <tr>
+                                        @auth
+                                            <td>
+                                                <a class="am-badge am-badge-primary" href="{{route('article-edit', $article->archive_id)}}">编辑</a>
+                                                @if($article->is_home == 0)
+                                                    <a class="am-badge am-badge-primary" href="{{route('show-home', $article->archive_id)}}">首页显示</a>
+                                                @endif
+                                                <a class="am-badge am-badge-danger" href="{{route('article-delete', $article->archive_id)}}">删除</a>
+                                            </td>
+                                        @endauth
+                                        <td>{{date('o-n-d', strtotime($article->created_at))}}</td>
+                                        <td>@if($article->is_publish == 0)<span class="am-badge am-badge-warning">未发布</span>&nbsp;&nbsp;@endif<a href="{{route('article', 'id='.($article->archive_id))}}">{{$article->titile}}</a></td>
+                                        <td>{{$article->folder_name}}</td>
+                                        <td>阅读数:{{$article->read_salvation}}</td>
+                                    </tr>
+                                @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
             </div>
         </div>
     </div>
