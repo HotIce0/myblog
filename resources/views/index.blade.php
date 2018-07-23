@@ -7,6 +7,7 @@
             @foreach($articles as $article)
             <article class="am-g blog-entry-article">
                 <div class="am-u-lg-10 am-u-md-12 am-u-sm-12 blog-entry-text">
+                    @if($article->is_publish == 0)<span class="am-badge am-badge-warning">未发布</span>&nbsp;&nbsp;@endif
                     <span><a>{{$article->folder_name}} &nbsp;</a></span>
                     <span class="blog-color"> @saoguang &nbsp;</span>
                     <span>{{date('o-n-d', strtotime($article->created_at))}}</span>
@@ -16,6 +17,7 @@
                 </div>
                 @auth
                 <div class="am-u-lg-2 am-u-md-12 am-u-sm-12">
+
                     <span><a href="{{route('hide-home', $article->archive_id)}}" type="button" class="am-align-right am-badge am-badge-success am-text-lg">取消首页显示</a></span>
                 </div>
                 @endauth

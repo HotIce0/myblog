@@ -37,11 +37,15 @@ class ArchivesController extends Controller
         //查询当年的所有文章
         $data = array();
         $data['year'] = $request->year;
+        $whereRule = [];
+        if(Auth::guest()){
+            array_push($whereRule, ['is_publish', '=', 1]);
+        }
         for ($month = 1; $month <= 12; $month++){
             $temp = $archivesQuery = Archives::join('folder', 'archives.folder_id', '=', 'folder.folder_id')
                 ->latest('archives.created_at')
-                ->where('is_publish', '=', 1)
-                ->select('archive_id', 'archives.folder_id', 'folder_name', 'titile', 'read_salvation', 'like', 'archives.created_at', 'is_home')
+                ->where($whereRule)
+                ->select('archive_id', 'archives.folder_id', 'folder_name', 'titile', 'read_salvation', 'like', 'archives.created_at', 'is_home', 'is_publish')
                 ->whereYear('archives.created_at', $request->year)
                 ->whereMonth('archives.created_at', $month)->get();
             if(!$temp->isEmpty()){
@@ -254,7 +258,7 @@ class ArchivesController extends Controller
         }
         $articles = Archives::join('folder', 'archives.folder_id', '=', 'folder.folder_id')
             ->where($whereRule)
-            ->select('archive_id', 'archives.folder_id', 'folder_name', 'titile', 'read_salvation', 'like', 'archives.created_at', 'is_home')
+            ->select('archive_id', 'archives.folder_id', 'folder_name', 'titile', 'read_salvation', 'like', 'archives.created_at', 'is_home', 'is_publish')
             ->get();
         return view('folder_article', [
             'id' => $id,

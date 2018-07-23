@@ -21,7 +21,7 @@
                             @foreach($data[$i] as $item)
                                 <li>
                                     <span class="am-u-sm-2 am-u-md-2 timeline-span">{{date('o-n-d', strtotime($item['created_at']))}}</span>
-                                    <span class="am-u-sm-5 am-u-md-5"><a href="{{route('article', 'id='.($item['archive_id']))}}">{{$item['titile']}}</a></span>
+                                    <span class="am-u-sm-5 am-u-md-5">@if($item['is_publish'] == 0)<span class="am-badge am-badge-warning">未发布</span>&nbsp;&nbsp;@endif<a href="{{route('article', 'id='.($item['archive_id']))}}">{{$item['titile']}}</a></span>
                                     <span class="am-u-sm-2 am-u-md-2 am-hide-sm-only">{{$item['folder_name']}}</span>
                                     <span class="am-u-sm-3 am-u-md-3 am-hide-sm-only">阅读数:{{$item['read_salvation']}}
                                         @auth
