@@ -247,7 +247,7 @@ class ArchivesController extends Controller
         //查询分类
         $folders = Folder::leftJoin('archives', 'folder.folder_id', '=', 'archives.folder_id')
             ->select(DB::raw('folder.folder_id,folder_name,count(archives.archive_id) as archive_count'))
-            ->groupBy('folder.folder_id')
+            ->groupBy('folder_id')
             ->get();
         //查询文章列表
         $whereRule = [
