@@ -13,7 +13,7 @@
                     <span>{{date('o-n-d', strtotime($article->created_at))}}</span>
                     <span>阅读量:{{$article->read_salvation}}</span>
                     <h1><a href="{{route('article', 'id='.($article->archive_id))}}">{{$article->titile}}</a></h1>
-                    <p>{!! mb_substr($article->content,0,200) !!}</p>
+                    <p>{!! mb_substr($article->content,0,200) !!}......</p>
                 </div>
                 @auth
                 <div class="am-u-lg-2 am-u-md-12 am-u-sm-12">
