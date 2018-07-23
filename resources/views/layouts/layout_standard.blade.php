@@ -67,8 +67,19 @@
             <li class="{{Request::url() == route('index') ? 'am-active' : ''}}">
                 <a href="{{route('index')}}">首页</a>
             </li>
-            <li class="{{Request::url() == route('archives') ? 'am-active' : ''}}">
-                <a href="{{route('archives', 'year='.date('Y'))}}">我的文章</a>
+            <li class="am-dropdown" data-am-dropdown>
+                <a class="am-dropdown-toggle" data-am-dropdown-toggle href="javascript:;">
+                    文章
+                    <span class="am-icon-caret-down"></span>
+                </a>
+                <ul class="am-dropdown-content">
+                    <li>
+                        <a href="{{route('archives', 'year='.date('Y'))}}">所有文章</a>
+                    </li>
+                    <li>
+                        <a href="{{route('folder-article', 1)}}">分类</a>
+                    </li>
+                </ul>
             </li>
             <li class="{{Request::url() == route('about-me') ? 'am-active' : ''}}">
                 <a href="{{route('about-me')}}">关于我</a>

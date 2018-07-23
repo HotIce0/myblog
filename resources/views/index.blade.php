@@ -16,7 +16,7 @@
                 </div>
                 @auth
                 <div class="am-u-lg-2 am-u-md-12 am-u-sm-12">
-                    <span><a href="{{route('hide-home', $article->archive_id)}}" type="button" class="am-align-right am-btn am-btn-default am-radius">取消首页显示</a></span>
+                    <span><a href="{{route('hide-home', $article->archive_id)}}" type="button" class="am-align-right am-badge am-badge-success am-text-lg">取消首页显示</a></span>
                 </div>
                 @endauth
             </article>

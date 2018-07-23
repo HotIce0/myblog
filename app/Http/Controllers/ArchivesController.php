@@ -7,6 +7,7 @@ use App\Folder;
 use App\Message;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
 class ArchivesController extends Controller
@@ -236,5 +237,29 @@ class ArchivesController extends Controller
                 'errorMsg' => '取消设置到首页失败!',
             ]);
         }
+    }
+
+    public function folderArticle($id){
+        //查询分类
+        $folders = Folder::leftJoin('archives', 'folder.folder_id', '=', 'archives.folder_id')
+            ->select(DB::raw('count(archives.archive_id) as archive_count,folder.folder_id,folder_name'))
+            ->groupBy('folder.folder_id')
+            ->get();
+        //查询文章列表
+        $whereRule = [
+            ['archives.folder_id', '=', $id],
+        ];
+        if(Auth::guest()){
+            array_push($whereRule, ['is_publish', '=', 1]);
+        }
+        $articles = Archives::join('folder', 'archives.folder_id', '=', 'folder.folder_id')
+            ->where($whereRule)
+            ->select('archive_id', 'archives.folder_id', 'folder_name', 'titile', 'read_salvation', 'like', 'archives.created_at', 'is_home')
+            ->get();
+        return view('folder_article', [
+            'id' => $id,
+            'folders' => $folders,
+            'articles' => $articles,
+        ]);
     }
 }

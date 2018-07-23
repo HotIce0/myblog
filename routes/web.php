@@ -18,6 +18,8 @@ Route::get('/', 'IndexController@index')->name('index');
 Route::get('/archives', 'ArchivesController@index')->name('archives');
 /* 查看文章 */
 Route::get('/article', 'ArchivesController@article')->name('article');
+/* 按分类查看文章 */
+Route::get('/folder-article/{id}', 'ArchivesController@folderArticle')->name('folder-article');
 /* 关于我 */
 Route::get('/about-me', 'BasicController@aboutme')->name('about-me');
 /* IT学习资料 */

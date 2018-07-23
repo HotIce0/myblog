@@ -11,7 +11,7 @@
                 <li class="am-pagination-next"><a href="{{route('archives', 'year='.($data['year'] + 1))}}">不远的未来 &raquo;</a></li>
             </ul>
             <div class="timeline-year">
-                <h1>{{$data['year']}}@auth<a href="{{route('article-edit')}}" type="button" class="am-align-right am-btn am-btn-default am-radius">写文章</a>@endauth</h1>
+                <h1>{{$data['year']}}@auth<a href="{{route('article-edit')}}" type="button" class="am-align-right am-badge am-badge-primary am-text-xl">写文章</a>@endauth</h1>
                 <hr>
                 @for($i = 12; $i >= 1; $i--)
                     @if(!empty($data[$i]))
@@ -25,10 +25,10 @@
                                     <span class="am-u-sm-2 am-u-md-2 am-hide-sm-only">{{$item['folder_name']}}</span>
                                     <span class="am-u-sm-3 am-u-md-3 am-hide-sm-only">阅读数:{{$item['read_salvation']}}
                                         @auth
-                                            <a class="blog-color" href="{{route('article-edit', $item['archive_id'])}}">编辑</a>
-                                            <a class="blog-color" href="{{route('article-delete', $item['archive_id'])}}">删除</a>
+                                            <a class="am-badge am-badge-primary" href="{{route('article-edit', $item['archive_id'])}}">编辑</a>
+                                            <a class="am-badge am-badge-danger" href="{{route('article-delete', $item['archive_id'])}}">删除</a>
                                             @if($item['is_home'] == 0)
-                                                <a class="blog-color" href="{{route('show-home', $item['archive_id'])}}">首页显示</a>
+                                                <a class="am-badge am-badge-primary" href="{{route('show-home', $item['archive_id'])}}">首页显示</a>
                                             @endif
                                         @endauth
                                     </span>
