@@ -5,7 +5,7 @@
     <div class="am-g am-g-fixed blog-fixed blog-content">
         <div class="am-u-sm-12">
             <h1 class="blog-text-center">分类</h1>
-
+            @auth<a href="{{route('article-edit')}}" type="button" class="am-align-right am-badge am-badge-primary am-text-xl">写文章</a>@endauth
             <ul class="am-pagination blog-article-margin">
                 @foreach($folders as $folder)
                     <a href="{{route('folder-article', $folder->folder_id)}}" role="button" class="am-btn am-btn-default {{$folder->folder_id==$id?"am-active":""}} am-radius">{{$folder->folder_name}}&nbsp;&nbsp;<span class="am-badge">{{$folder->archive_count}}</span></a>
