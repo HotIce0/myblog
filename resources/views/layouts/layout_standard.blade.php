@@ -109,9 +109,9 @@
                 <a href="https://weibo.com/u/5248740631" target="_blank">
                     <span class="am-icon-weibo am-icon-fw blog-icon blog-icon"></span>
                 </a>
-                <a href="">
-                    <span class="am-icon-weixin am-icon-fw blog-icon blog-icon"></span>
-                </a>
+                {{--<a href="">--}}
+                    {{--<span class="am-icon-weixin am-icon-fw blog-icon blog-icon"></span>--}}
+                {{--</a>--}}
             </p>
             <h3>联系我:</h3>
             <p>Q Q : 51747708 (请注明来意)
