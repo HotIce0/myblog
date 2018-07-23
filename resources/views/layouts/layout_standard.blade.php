@@ -34,6 +34,13 @@
         })();
     </script>
     <!-- 流量统计 end -->
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-8174840182897740",
+            enable_page_level_ads: true
+        });
+    </script>
     @yield('head-extend'){{-- 头部扩展 --}}
 </head>
 <body  id="blog">
