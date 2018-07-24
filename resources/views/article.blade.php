@@ -15,6 +15,17 @@
         <div class="am-u-md-9 am-u-sm-12">
             <article class="am-article blog-article-p">
                 <div class="am-article-hd">
+                    @auth
+                        <span>
+                            <a class="am-badge am-badge-primary" href="{{route('article-edit', $data['archive_id'])}}">编辑</a>
+                            <a class="am-badge am-badge-danger" href="{{route('article-delete', $data['archive_id'])}}">删除</a>
+                            @if($data['is_home'] == 0)
+                                <a class="am-badge am-badge-primary" href="{{route('show-home', $data['archive_id'])}}">首页显示</a>
+                            @else
+                                <a class="am-badge am-badge-warning" onclick="return confirm('确定取消该文章的首页显示?');" href="{{route('hide-home', $data['archive_id'])}}">取消首页显示</a>
+                            @endif
+                            </span>
+                    @endauth
                     <h1 class="am-article-title blog-text-center">{{$data['titile']}}</h1>
                     <p class="am-article-meta blog-text-center">
                         <span><a href="#">{{$data['folder_name']}} &nbsp;</a></span>-

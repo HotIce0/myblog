@@ -16,13 +16,13 @@
             <input id="submit_type" name="submit_type" value="" style="display:none">
             {{--save|publish--}}
             <div class="am-u-md-7 am-u-sm-12">
-                <input name="article_title" type="text" class="am-form-field am-input-sm" placeholder="文章标题" value="{{$article!=null?$article->titile:""}}">
+                <input name="article_title" type="text" class="am-form-field am-input-sm" placeholder="文章标题" value="{{old('article_title') != null?old('article_title'):($article!=null?$article->titile:"")}}">
             </div>
             <div class="am-u-md-3 am-u-sm-12">
                 <label>文章分类</label>
                 <select name="article_folder" data-am-selected="{maxHeight: 100}">
                     @foreach($folders as $folder)
-                        <option value="{{$folder->folder_id}}" {{($article!=null and $article->folder_id == $folder->folder_id)?'selected=selected':''}}>{{$folder->folder_name}}</option>
+                        <option value="{{$folder->folder_id}}" {{((old('article_folder') != null?old('article_folder'):($article!=null and $article->folder_id)) == $folder->folder_id)?'selected=selected':''}}>{{$folder->folder_name}}</option>
                     @endforeach
                 </select>
             </div>
@@ -35,12 +35,12 @@
         </div>
         <div class="am-g am-g-fixed blog-fixed">
             <div class="am-u-md-7 am-u-sm-12">
-                <input name="article_lable" type="text" class="am-form-field am-input-sm" placeholder="文章标签(,号隔开)" value="{{$article!=null?$article->label:""}}">
+                <input name="article_lable" type="text" class="am-form-field am-input-sm" placeholder="文章标签(,号隔开)" value="{{old('article_title') != null?old('article_title'):($article!=null?$article->label:"")}}">
             </div>
         </div>
         <hr>
         <div id="article-editormd">
-            <textarea style="display:none;">{{$article!=null?$article->content:""}}</textarea>
+            <textarea style="display:none;">{{old('article-editormd-markdown-doc') != null?old('article-editormd-markdown-doc'):($article!=null?$article->content:"")}}</textarea>
         </div>
     </form>
 @endsection

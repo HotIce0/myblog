@@ -37,9 +37,11 @@
                                     @auth
                                         <td>
                                             <a class="am-badge am-badge-primary" href="{{route('article-edit', $item['archive_id'])}}">编辑</a>
-                                            <a class="am-badge am-badge-danger" href="{{route('article-delete', $item['archive_id'])}}">删除</a>
+                                            <a class="am-badge am-badge-danger" onclick="return confirm('确定要删除该文章！');" href="{{route('article-delete', $item['archive_id'])}}">删除</a>
                                             @if($item['is_home'] == 0)
                                                 <a class="am-badge am-badge-primary" href="{{route('show-home', $item['archive_id'])}}">首页显示</a>
+                                            @else
+                                                <a class="am-badge am-badge-warning" onclick="return confirm('确定取消该文章的首页显示?');" href="{{route('hide-home', $item['archive_id'])}}">取消首页显示</a>
                                             @endif
                                         </td>
                                     @endauth

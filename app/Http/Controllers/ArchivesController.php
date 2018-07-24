@@ -94,7 +94,7 @@ class ArchivesController extends Controller
         }
         $article = Archives::join('folder', 'archives.folder_id', '=', 'folder.folder_id')
             ->where($whereRule)
-            ->select('archive_id', 'archives.folder_id', 'folder_name', 'titile', 'read_salvation', 'like', 'content', 'label', 'archives.created_at', 'archives.updated_at', 'is_publish', 'content_html')
+            ->select('archive_id', 'archives.folder_id', 'folder_name', 'titile', 'read_salvation', 'like', 'content', 'label', 'archives.created_at', 'archives.updated_at', 'is_publish', 'content_html', 'is_home')
             ->first();
         //没有权限查看
         if($article == null){
