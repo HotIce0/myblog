@@ -91,6 +91,13 @@ class ArchivesController extends Controller
             ->where($whereRule)
             ->select('archive_id', 'archives.folder_id', 'folder_name', 'titile', 'read_salvation', 'like', 'content', 'label', 'archives.created_at', 'archives.updated_at', 'is_publish', 'content_html')
             ->first();
+        //没有权限查看
+        if($article == null){
+            return view('errors.default',[
+                'errorCode' => '0618',
+                'errorMsg' => '您没有权限查看该文章',
+            ]);
+        }
         //增加阅读量
         if($firstRead){
             $article->read_salvation = intval($article->read_salvation) + 1;
@@ -102,13 +109,6 @@ class ArchivesController extends Controller
         $data['comments'] = Message::where('archive_id', '=', $article->archive_id)
             ->get()->toArray();
         //dd($data['comments']);
-        //没有权限查看
-        if(empty($data)){
-            return view('errors.default',[
-                'errorCode' => '0618',
-                'errorMsg' => '您没有权限查看该文章',
-            ]);
-        }
         return view('article', [
             'data' => $data,
         ]);
@@ -132,6 +132,28 @@ class ArchivesController extends Controller
                 'article' => $article,
             ]);
         }elseif($request->isMethod('post')){
+            //验证规则
+            $rules = array(
+                'article_title' => 'required|max:256',
+                'article_folder' => 'required|exists:folder,folder_id',
+                'article_lable' => '',
+                'article-editormd-markdown-doc' => '',
+            );
+            //错误消息
+            $message = array(
+                'required'=>':attribute 必须填写',
+                'exists'=>':attribute 无效',
+                'article_title.max' => ':attribute 最长256个字符',
+            );
+            //字段意义
+            $meaning = array(
+                'article_title' => '文章标题',
+                'article_folder' => '文章分类',
+                'article_lable' => '文章标签',
+            );
+            //表单验证
+            $this->validate($request, $rules, $message, $meaning);
+
             if($article == null){
                 $article = new Archives();
             }
@@ -149,7 +171,7 @@ class ArchivesController extends Controller
                 return redirect(route('article', 'article', 'id='.($article->archive_id)));
             }else{
                 return view('errors.default',[
-                    'errorCode' => '777',
+                    'errorCode' => '0618',
                     'errorMsg' => '运气有点差，文章数据存储失败!',
                 ]);
             }
