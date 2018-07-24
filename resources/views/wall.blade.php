@@ -26,7 +26,6 @@
                 <p>
                     <a href="https://github.com/saoguang" target="_blank"><span class="am-icon-github am-icon-fw blog-icon"></span></a>
                     <a href="https://weibo.com/u/5248740631" target="_blank"><span class="am-icon-weibo am-icon-fw blog-icon"></span></a>
-                    <a href=""><span class="am-icon-weixin am-icon-fw blog-icon"></span></a>
                 </p>
             </div>
         </div>

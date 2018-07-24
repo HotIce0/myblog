@@ -80,6 +80,11 @@
             <li class="{{Request::url() == route('wall') ? 'am-active' : ''}}">
                 <a href="{{route('wall')}}">真实的我</a>
             </li>
+            @auth
+                <li class="{{Request::url() == route('admin') ? 'am-active' : ''}}">
+                    <a href="{{route('admin')}}">网站管理</a>
+                </li>
+            @endauth
         </ul>
         <form class="am-topbar-form am-topbar-right am-form-inline" role="search">
             <div class="am-form-group">
@@ -132,12 +137,11 @@
                 <li>How to find out.</li>
                 <li>How to think.</li>
                 <li>...</li>
-                <li>@guest
+                @guest
+                    <li>
                         <a href="{{route('login')}}">😆Magical Entrance</a>
-                    @else
-                        <a href="{{route('admin')}}">😆后台管理</a>
-                    @endguest
-                </li>
+                    </li>
+                @endguest
             </ul>
             </p>
         </div>

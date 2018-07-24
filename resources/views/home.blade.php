@@ -6,7 +6,7 @@
             <div class="col-md-12">
 
                 <div class="card">
-                    <div class="card-header">管理页面</div>
+                    <div class="card-header">站点管理页面</div>
 
                     <div class="card-body">
                         @if (session('status'))
