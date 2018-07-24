@@ -37,7 +37,6 @@
     @yield('head-extend'){{-- 头部扩展 --}}
 </head>
 <body  id="blog">
-
 <header class="am-g am-g-fixed blog-fixed blog-text-center blog-header">
     <div class="am-u-sm-8 am-u-sm-centered">
         {{--<img width="200" src="http://s.amazeui.org/media/i/brand/amazeui-b.png" alt="Amaze UI Logo" />--}}
@@ -47,14 +46,12 @@
     </div>
 </header>
 <hr>
-
 <!-- nav start -->
 <nav class="am-g am-g-fixed blog-fixed blog-nav">
     <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only blog-button" data-am-collapse="{target: '#blog-collapse'}">
         <span class="am-sr-only">导航切换</span>
         <span class="am-icon-bars"></span>
     </button>
-
     <div class="am-collapse am-topbar-collapse" id="blog-collapse">
         <ul class="am-nav am-nav-pills am-topbar-nav">
             <li class="{{Request::url() == route('index') ? 'am-active' : ''}}">
@@ -93,11 +90,9 @@
 </nav>
 <hr>
 <!-- nav end -->
-
+@include('errors.error_msg')
 @yield('banner')
-
 @yield('content')
-
 <!-- footer start -->
 <footer class="blog-footer">
     <div class="am-g am-g-fixed blog-fixed am-u-sm-centered blog-footer-padding">
@@ -120,9 +115,6 @@
                 <a href="https://weibo.com/u/5248740631" target="_blank">
                     <span class="am-icon-weibo am-icon-fw blog-icon blog-icon"></span>
                 </a>
-                {{--<a href="">--}}
-                    {{--<span class="am-icon-weixin am-icon-fw blog-icon blog-icon"></span>--}}
-                {{--</a>--}}
             </p>
             <h3>联系我:</h3>
             <p>Q Q : 51747708 (请注明来意)
@@ -156,7 +148,6 @@
     </div>
 </footer>
 <!-- footer end -->
-
 <!--[if (gte IE 9)|!(IE)]><!-->
 <script src="{{asset('assets/js/jquery.min.js')}}"></script>
 <!--<![endif]-->

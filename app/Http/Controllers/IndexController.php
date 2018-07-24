@@ -8,6 +8,10 @@ use Illuminate\Support\Facades\Auth;
 
 class IndexController extends Controller
 {
+    /**
+     * 主页
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function index()
     {
         $whereRule = [

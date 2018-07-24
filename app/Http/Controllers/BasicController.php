@@ -21,14 +21,26 @@ class BasicController extends Controller
         return json_encode($res);
     }
 
+    /**
+     * about-me页面
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function aboutme(){
         return view('aboutme');
     }
 
+    /**
+     * wall页面
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function wall(){
         return view('wall');
     }
 
+    /**
+     * IT学习资料页面
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function itResource(){
         return view('errors.default',[
             'errorCode' => '0618',
@@ -36,6 +48,11 @@ class BasicController extends Controller
         ]);
     }
 
+    /**
+     * 文章分类管理页面
+     * @param $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function folderIndex($id){
         return view('errors.default',[
             'errorCode' => '0618',

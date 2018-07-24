@@ -30,8 +30,9 @@ Route::post('/message/{id}', 'ArchivesController@message')->name('message');
 /* 管理员路由 */
 Route::Group(['middleware'=>'auth'],function() {
     Route::get('/admin', 'AdminController@index')->name('admin');
-    /* 写文章，或编辑文章 */
+    /* 写，编辑，保存，发布文章 */
     Route::any('/article-edit/{id?}', 'ArchivesController@articleEdit')->name('article-edit');
+    /* 删除文章 */
     Route::get('/article-delete/{id}', 'ArchivesController@articleDelete')->name('article-delete');
     /* 图片上传 */
     Route::post('/upload-img', 'BasicController@uploadImg')->name('upload-img');
