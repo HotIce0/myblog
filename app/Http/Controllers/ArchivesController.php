@@ -304,8 +304,14 @@ class ArchivesController extends Controller
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function folderArticle($id){
+        //用于过滤，没有文章的分类和分类中的文章未发布，对于guset来说
+        $whereRuleFirst = [];
+        if(Auth::guest()){
+            array_push($whereRuleFirst, ['archives.is_publish', '=', '1']);
+        }
         //查询分类
         $folders = Folder::leftJoin('archives', 'folder.folder_id', '=', 'archives.folder_id')
+            ->where($whereRuleFirst)
             ->select(DB::raw('folder.folder_id,folder_name,count(archives.archive_id) as archive_count'))
             ->groupBy('folder_id')
             ->groupBy('folder_name')
