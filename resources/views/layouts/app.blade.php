@@ -54,8 +54,6 @@
                                     <a class="dropdown-item" href="{{ route('logout') }}">
                                         文章分类管理
                                     </a>
-                                </div>
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="http://www.saoguang.top:5174/phpMyAdmin-4.7.4-all-languages/index.php">
                                         数据库管理
                                     </a>
