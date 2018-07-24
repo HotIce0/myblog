@@ -27,7 +27,7 @@
                                 @endauth
                                 <th>时间</th>
                                 <th>文章标题</th>
-                                <th>分支分类</th>
+                                <th>分类</th>
                                 <th>阅读数量</th>
                             </tr>
                             </thead>
