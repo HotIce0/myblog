@@ -47,7 +47,7 @@
     <div class="am-u-sm-8 am-u-sm-centered">
         {{--<img width="200" src="http://s.amazeui.org/media/i/brand/amazeui-b.png" alt="Amaze UI Logo" />--}}
         <h2 class="am-hide-sm-only">
-            <a href="{{route('index')}}" title="Saoguang | For Fun">🙈Saoguang | For Fun😀</a>
+            <a href="{{route('index')}}" title="Saoguang | For Fun">🙈SafetyEngineer之路😀</a>
         </h2>
     </div>
 </header>
