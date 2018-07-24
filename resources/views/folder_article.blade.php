@@ -46,7 +46,7 @@
                                             </td>
                                         @endauth
                                         <td>{{date('o-n-d', strtotime($article->created_at))}}</td>
-                                        <td>@if($article->is_publish == 0)<span class="am-badge am-badge-warning">未发布</span>&nbsp;&nbsp;@endif<a href="{{route('article', 'id='.($article->archive_id))}}">{{$article->titile}}</a></td>
+                                            <td>@if($article->is_publish == 0)<span class="am-badge am-badge-warning">未发布</span>&nbsp;&nbsp;@endif<a href="{{route('article', 'id='.($article->archive_id))}}"><strong>{{$article->titile}}</strong></a></td>
                                         <td>{{$article->folder_name}}</td>
                                         <td>阅读数:{{$article->read_salvation}}</td>
                                     </tr>
