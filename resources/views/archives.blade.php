@@ -19,40 +19,40 @@
                                 <h3 class="am-panel-title">{{$i}}月</h3>
                             </div>
                             <div class="am-panel-bd">
-                            <table class="am-table">
-                                <thead>
-                                <tr>
-                                    @auth
-                                        <th>操作</th>
-                                    @endauth
-                                    <th>时间</th>
-                                    <th>文章标题</th>
-                                    <th>分支分类</th>
-                                    <th>阅读数量</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                @foreach($data[$i] as $item)
-                                <tr>
-                                    @auth
-                                        <td>
-                                            <a class="am-badge am-badge-primary" href="{{route('article-edit', $item['archive_id'])}}">编辑</a>
-                                            <a class="am-badge am-badge-danger" onclick="return confirm('确定要删除该文章！');" href="{{route('article-delete', $item['archive_id'])}}">删除</a>
-                                            @if($item['is_home'] == 0)
-                                                <a class="am-badge am-badge-primary" href="{{route('show-home', $item['archive_id'])}}">首页显示</a>
-                                            @else
-                                                <a class="am-badge am-badge-warning" onclick="return confirm('确定取消该文章的首页显示?');" href="{{route('hide-home', $item['archive_id'])}}">取消首页显示</a>
-                                            @endif
-                                        </td>
-                                    @endauth
-                                    <td>{{date('o-n-d', strtotime($item['created_at']))}}</td>
-                                    <td>@if($item['is_publish'] == 0)<span class="am-badge am-badge-warning">未发布</span>&nbsp;&nbsp;@endif<a href="{{route('article', 'id='.($item['archive_id']))}}"><strong>{{$item['titile']}}</strong></a></td>
-                                    <td>{{$item['folder_name']}}</td>
-                                    <td>阅读数:{{$item['read_salvation']}}</td>
-                                </tr>
-                                @endforeach
-                                </tbody>
-                            </table>
+                                <table class="am-table">
+                                    <thead>
+                                    <tr>
+                                        @auth
+                                            <th>操作</th>
+                                        @endauth
+                                        <th>时间</th>
+                                        <th>文章标题</th>
+                                        <th>分支分类</th>
+                                        <th>阅读数量</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    @foreach($data[$i] as $item)
+                                        <tr>
+                                            @auth
+                                                <td>
+                                                    <a class="am-badge am-badge-primary" href="{{route('article-edit', $item['archive_id'])}}">编辑</a>
+                                                    <a class="am-badge am-badge-danger" onclick="return confirm('确定要删除该文章！');" href="{{route('article-delete', $item['archive_id'])}}">删除</a>
+                                                    @if($item['is_home'] == 0)
+                                                        <a class="am-badge am-badge-primary" href="{{route('show-home', $item['archive_id'])}}">首页显示</a>
+                                                    @else
+                                                        <a class="am-badge am-badge-warning" onclick="return confirm('确定取消该文章的首页显示?');" href="{{route('hide-home', $item['archive_id'])}}">取消首页显示</a>
+                                                    @endif
+                                                </td>
+                                            @endauth
+                                            <td>{{date('o-n-d', strtotime($item['created_at']))}}</td>
+                                            <td>@if($item['is_publish'] == 0)<span class="am-badge am-badge-warning">未发布</span>&nbsp;&nbsp;@endif<a href="{{route('article', 'id='.($item['archive_id']))}}"><strong>{{$item['titile']}}</strong></a></td>
+                                            <td>{{$item['folder_name']}}</td>
+                                            <td>阅读数:{{$item['read_salvation']}}</td>
+                                        </tr>
+                                    @endforeach
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     @endif

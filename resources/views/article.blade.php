@@ -44,9 +44,9 @@
             <div class="am-g blog-article-widget blog-article-margin">
                 <div class="am-u-lg-4 am-u-md-5 am-u-sm-7 am-u-sm-centered blog-text-center">
                     <span class="am-icon-tags"> &nbsp;</span>
-                        @for($i = 0; $i < count($data['label']); $i++)
-                            <a href="#">{{$data['label'][$i]}}</a>{{$i!=(count($data['label'])-1)?',':''}}
-                        @endfor
+                    @for($i = 0; $i < count($data['label']); $i++)
+                        <a href="#">{{$data['label'][$i]}}</a>{{$i!=(count($data['label'])-1)?',':''}}
+                    @endfor
                     <hr>
                     <a href=""><span class="am-icon-qq am-icon-fw am-primary blog-icon"></span></a>
                     <a href=""><span class="am-icon-wechat am-icon-fw blog-icon"></span></a>

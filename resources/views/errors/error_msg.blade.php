@@ -10,5 +10,3 @@
         <p>{{Session::get('failureMsg')}}</p>
     </div>
 @endif
-
-
