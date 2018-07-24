@@ -120,7 +120,7 @@
             <p>Q Q : 51747708 (请注明来意)
                 <br>邮箱 : saoguang@vip.qq.com
                 <br>地点 : 湖南理工学院 5214
-                <br>CSDN : <a href="https://blog.csdn.net/u011580175" target="_blank">@Saoguang</a>
+                <br>CSDN博客 : <a href="https://blog.csdn.net/u011580175" target="_blank">@骚骚皮皮</a>
             </p>
         </div>
         <div class="am-u-sm-12 am-u-md-4- am-u-lg-4">
