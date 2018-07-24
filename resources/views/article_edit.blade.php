@@ -22,7 +22,7 @@
                 <label>文章分类</label>
                 <select name="article_folder" data-am-selected="{maxHeight: 100}">
                     @foreach($folders as $folder)
-                        <option value="{{$folder->folder_id}}" {{((old('article_folder') != null?old('article_folder'):($article!=null and $article->folder_id)) == $folder->folder_id)?'selected=selected':''}}>{{$folder->folder_name}}</option>
+                        <option value="{{$folder->folder_id}}" {{((old('article_folder') != null?old('article_folder'):($article!=null?$article->folder_id:"")) == $folder->folder_id)?'selected=selected':''}}>{{$folder->folder_name}}</option>
                     @endforeach
                 </select>
             </div>
