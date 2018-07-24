@@ -94,7 +94,7 @@ class ArchivesController extends Controller
         }
         $article = Archives::join('folder', 'archives.folder_id', '=', 'folder.folder_id')
             ->where($whereRule)
-            ->select('archive_id', 'archives.folder_id', 'folder_name', 'titile', 'read_salvation', 'like', 'content', 'label', 'archives.created_at', 'archives.updated_at', 'is_publish', 'content_html', 'is_home')
+            ->select('archive_id', 'archives.folder_id', 'folder_name', 'titile', 'read_salvation', 'like', 'content', 'label', 'archives.created_at', 'archives.updated_at', 'is_publish', 'is_home')
             ->first();
         //没有权限查看
         if($article == null){
@@ -172,7 +172,7 @@ class ArchivesController extends Controller
             $article->titile = $request->article_title;
             $article->content = $request->get('article-editormd-markdown-doc');
             $article->label = json_encode(explode(',', $request->article_lable));
-            $article->content_html = $request->get('article-editormd-html-code');
+//            $article->content_html = $request->get('article-editormd-html-code');
             $tipMsg = '';
             if($request->submit_type == 'save'){
                 $tipMsg = '文章保存成功!';
