@@ -8,7 +8,7 @@
     <meta name="keywords" content="Saoguang">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     @section('title')
-        <title>SafetyEngineer之路</title>
+        <title>{{ config('app.name', 'Laravel') }}</title>
     @show
     <meta name="renderer" content="webkit">
     <meta http-equiv="Cache-Control" content="no-siteapp" />

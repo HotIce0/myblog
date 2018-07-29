@@ -29,7 +29,24 @@ Route::post('/message/{id}', 'ArchivesController@message')->name('message');
 
 /* 管理员路由 */
 Route::Group(['middleware'=>'auth'],function() {
+    /* 后台管理首页 */
     Route::get('/admin', 'AdminController@index')->name('admin');
+    /* 文章分类管理 */
+    Route::Group(['prefix'=>'folderManage'],function() {
+        Route::get('/', 'AdminController@folderManage')->name('admin-folder');
+        Route::get('folders', 'AdminController@getFolders')->name('admin-get-folders');
+        Route::get('edit', 'AdminController@editFolder')->name('admin-edit-folder');
+        Route::get('add', 'AdminController@addFolder')->name('admin-add-folder');
+        Route::get('delete', 'AdminController@deleteFolder')->name('admin-delete-folder');
+
+    });
+    /* 文章留言管理 */
+    Route::Group(['prefix'=>'msgManage'],function() {
+        Route::get('/', 'AdminController@msgManage')->name('admin-msg');
+        Route::get('msgs', 'AdminController@getMsgs')->name('admin-get-msgs');
+        Route::get('delete', 'AdminController@deleteMsg')->name('admin-delete-msg');
+    });
+
     /* 写，编辑，保存，发布文章 */
     Route::any('/article-edit/{id?}', 'ArchivesController@articleEdit')->name('article-edit');
     /* 删除文章 */
@@ -42,8 +59,6 @@ Route::Group(['middleware'=>'auth'],function() {
     Route::get('/show-home/{id}', 'ArchivesController@showHome')->name('show-home');
     /* 取消首页显示 */
     Route::get('/hide-home/{id}', 'ArchivesController@hideHome')->name('hide-home');
-    /* 文章分类管理 */
-    Route::any('/folder/{id?}', 'BasicController@folderIndex')->name('folder');
 });
 
 Auth::routes();
